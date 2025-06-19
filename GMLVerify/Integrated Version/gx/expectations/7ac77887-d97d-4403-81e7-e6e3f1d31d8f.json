@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "id": "838fd69e-9857-41e3-874f-8aaf659e72a4",
+      "kwargs": {
+        "column": "score",
+        "regex": "^(?:[1-9]\\d*|0*[1-9]\\d*)$"
+      },
+      "meta": {},
+      "type": "expect_column_values_to_match_regex"
+    },
+    {
+      "id": "0eabec6b-c329-4279-81ea-0b44d04e2b80",
+      "kwargs": {
+        "column": "body",
+        "max_value": 1000,
+        "min_value": 1
+      },
+      "meta": {},
+      "type": "expect_column_value_lengths_to_be_between"
+    },
+    {
+      "id": "583c61e2-f0d1-4dda-98f4-205a67bf804a",
+      "kwargs": {
+        "column": "subreddit",
+        "value_set": [
+          "technology",
+          "politics",
+          "science",
+          "machinelearning"
+        ]
+      },
+      "meta": {},
+      "type": "expect_column_values_to_be_in_set"
+    }
+  ],
+  "id": "53badd5d-bd71-42f1-92e2-8e33e8d20d83",
+  "meta": {
+    "great_expectations_version": "1.4.4"
+  },
+  "name": "7ac77887-d97d-4403-81e7-e6e3f1d31d8f",
+  "notes": null
+}

@@ -1,0 +1,20 @@
+{
+  "expectations": [
+    {
+      "id": "361b9659-125b-4cbb-adcc-8764128750b5",
+      "kwargs": {
+        "column": "\u4ea4\u6613\u91d1\u989d",
+        "max_value": 100000000.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "a229cd58-413b-415d-bb47-908f4db732fb",
+  "meta": {
+    "great_expectations_version": "1.4.4"
+  },
+  "name": "3488abdc-8068-4d25-9777-1669687cc50c",
+  "notes": null
+}
