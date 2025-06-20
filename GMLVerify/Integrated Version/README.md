@@ -1,4 +1,4 @@
-# Great Expectations
+# GML Verify
 ## 项目结构
 greatexpectations/
 ├── context/                    # 核心验证器模块
@@ -51,7 +51,7 @@ pip install pyspark==3.0  # 可选
 
 ## 配置说明
 
-### Great Expectations 配置
+###  配置
 
 主要配置文件 `gx/great_expectations.yml` 包含：
 
