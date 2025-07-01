@@ -80,27 +80,20 @@ data_docs_sites:
       base_directory: uncommitted/data_docs/local_site/
     site_index_builder:
       class_name: DefaultSiteIndexBuilder
-  my_site:
-    class_name: SiteBuilder
-    site_index_builder:
-      class_name: DefaultSiteIndexBuilder
-    store_backend:
-      class_name: TupleFilesystemStoreBackend
-      base_directory: result
 fluent_datasources:
   file_data:
     type: pandas_filesystem
-    id: e7e8abe1-220d-44c9-b6a4-8f59b6de926b
+    id: abcd0f3a-07a2-4915-ae61-721d9fffb817
     assets:
       tax_data:
         type: csv
-        id: ca08ef66-2692-4813-a654-dca9598b765f
+        id: 493407d3-aa59-4a4b-997f-190d9118829d
         batch_definitions:
           tax_data_batch:
-            id: e897e725-2bf7-4928-9ceb-a60bd20405d4
+            id: e16ffbf8-0886-446d-bc2b-16dfa39ae766
             partitioner:
               regex: tax_data.csv$
               param_names: []
-    base_directory: D:\project\project\data
+    base_directory: C:\Users\GX\Desktop\GMLVerify-main\project\data
 analytics_enabled:
-data_context_id: e8a9fa87-d6bb-4ff2-8f8b-c94ee46e98e7
+data_context_id: 678db6cf-c3ed-4471-833d-4e0dc218a9e4

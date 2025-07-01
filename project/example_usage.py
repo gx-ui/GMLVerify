@@ -2,12 +2,11 @@ import great_expectations as gx
 import great_expectations.expectations as gxe
 import pandas as pd
 # from pyspark.sql import SparkSession
-
 from context.dataframe_validator import DataFrameValidator
 from context.file_validator import FileValidator
 def example_dataframe_validator():
     # 创建上下文
-    context = gx.get_context(mode="file", project_root_dir="../")
+    context = gx.get_context(mode="file", project_root_dir="./")
     # 创建Spark验证器
     dataframe_validator = DataFrameValidator(context)
     # 定义期望
@@ -27,19 +26,15 @@ def example_dataframe_validator():
         )
     ]
     # spark = SparkSession.builder \
-    #     .appName("Reddit数据简单预处理以及greatexpectations演示") \
+    #     .appName("Reddit数据简单预处理以及演示") \
     #     .master("local[*]") \
     #     .config("spark.sql.shuffle.partitions", 10) \
     #     .config("spark.sql.adaptive.enabled", "false") \
     #     .config("spark.sql.adaptive.coalescePartitions.enabled", "false") \
     #     .getOrCreate()
-    data_path = "../data/filtered/part-2.parquet"
-    # df = spark.read.parquet(data_path)
+    data_path = "./data/tax_data.csv"
 
-    # 用pandas读data_path = "../data/filtered/part-2.parquet"
-
-
-    df = pd.read_parquet(data_path)
+    df = pd.read_csv(data_path)
 
     results = dataframe_validator.validate_data(
         df_type="pandas",
@@ -50,7 +45,7 @@ def example_dataframe_validator():
     return results
 
 def example_file_validator():
-    context = gx.get_context(mode="file", project_root_dir="../")
+    context = gx.get_context(mode="file", project_root_dir="./")
     # 创建Spark验证器
     file_validator = FileValidator(context)
 
@@ -61,7 +56,7 @@ def example_file_validator():
             max_value=1000
         ),  
     ]
-    result=file_validator.validate_data("csv","../data","tax_data.csv",expectations)
+    result=file_validator.validate_data("csv","./data","tax_data.csv",expectations)
 
     return result
 

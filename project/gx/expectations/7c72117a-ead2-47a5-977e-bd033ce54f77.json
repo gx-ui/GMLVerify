@@ -1,0 +1,20 @@
+{
+  "expectations": [
+    {
+      "id": "3abc48e1-71bd-45bc-abb7-413a65d3eb1e",
+      "kwargs": {
+        "column": "passenger_count",
+        "max_value": 1000.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "6add62b4-6140-416c-b577-d2bf57b9c467",
+  "meta": {
+    "great_expectations_version": "1.5.3"
+  },
+  "name": "7c72117a-ead2-47a5-977e-bd033ce54f77",
+  "notes": null
+}

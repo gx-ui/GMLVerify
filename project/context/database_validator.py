@@ -1,5 +1,5 @@
 import great_expectations as gx
-from context.base_validator import BaseValidator
+from .base_validator import BaseValidator
 from typing import Dict, Any, Optional
 
 class DatabaseValidator(BaseValidator):
@@ -42,17 +42,17 @@ class DatabaseValidator(BaseValidator):
     def validate_data(self, db_type:str=None, table_name:str=None,connection_url:str=None,expectations:list=None):
         names = self.generate_unique_names(table_name)
         names['batch_definition_name'] = f"{table_name}_batch"
-        # 创建验证流程
+
         data_source = self.create_data_source(names['data_source_name'], db_type, connection_url)
         data_asset = self.create_data_asset(data_source, names['data_asset_name'], table_name=table_name)
         batch_definition = self.create_batch_definition(data_asset, names['batch_definition_name'])
         suite = self.create_suite(names['suite_name'], expectations)
         validation_definition = self.create_validation_definition(batch_definition, suite, names['validation_definition_name'])
         checkpoint = self.create_checkpoint(names['checkpoint_name'], validation_definition)
-        # 运行验证
+
         results = checkpoint.run()
-        # 构建并打开文档
-        self.build_and_open_docs(names['site_name'])
+        # self.build_and_open_docs(names['site_name'])
+        self.context.build_data_docs()
 
         return results
 def validate_postgresql_data(context, connection_url, expectations,

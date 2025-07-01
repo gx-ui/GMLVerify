@@ -46,12 +46,12 @@ class DataFrameValidator(BaseValidator):
         )
         checkpoint = self.create_checkpoint(names['checkpoint_name'], validation_definition)
         
-        # 运行验证
+
         results = checkpoint.run(dataframe_batch)
-        
-        # 构建并打开文档
-        self.build_and_open_docs(names['site_name'])
-        
+
+
+        # self.build_and_open_docs(names['site_name'])
+        self.context.build_data_docs()
         return results
 def validate_dataframe_data(context, batch_parameters, expectations):
     validator = DataFrameValidator(context)

@@ -1,6 +1,7 @@
 import great_expectations as gx
-from context.file_validator import FileValidator
-from context.database_validator import DatabaseValidator
+from .file_validator import FileValidator
+from .database_validator import DatabaseValidator
+from .dataframe_validator import DataFrameValidator
 from enum import Enum
 
 
@@ -21,7 +22,7 @@ class ValidatorFactory:
         if validator_type == ValidatorType.FILE:
             return FileValidator(context, **kwargs)
         elif validator_type == ValidatorType.SPARK:
-            return SparkValidator(context, **kwargs)
+            return DataFrameValidator(context, **kwargs)
         elif validator_type in [ValidatorType.DATABASE, ValidatorType.POSTGRESQL, ValidatorType.MYSQL]:
             return DatabaseValidator(context, **kwargs)
         else:

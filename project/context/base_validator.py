@@ -83,7 +83,7 @@ class BaseValidator(ABC):
         if site_name not in existing_sites:
             self.context.add_data_docs_site(site_name=site_name, site_config=self.site_config)
 
-        self.context.build_data_docs(site_names=[site_name])  # 只构建指定站点
+        self.context.build_data_docs(site_names=[site_name])
         self.context.open_data_docs(site_name=site_name)
 
 

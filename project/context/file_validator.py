@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from context.base_validator import BaseValidator
+from .base_validator import BaseValidator
 
 class FileValidator(BaseValidator):
 
@@ -42,7 +42,6 @@ class FileValidator(BaseValidator):
         data_asset_name = Path(batch_path).stem
         names = self.generate_unique_names(data_asset_name)
         names['batch_definition_name'] = f"{data_asset_name}_batch"
-        # 创建验证流程
         data_source = self.create_data_source(names['data_source_name'], data_source_path)
         data_asset = self.create_data_asset(data_source, names['data_asset_name'], asset_type)
         batch_definition = self.create_batch_definition(data_asset, names['batch_definition_name'], batch_path)
@@ -51,14 +50,12 @@ class FileValidator(BaseValidator):
             batch_definition, suite, names['validation_definition_name']
         )
         checkpoint = self.create_checkpoint(names['checkpoint_name'], validation_definition)
-        
-        # 运行验证
         results = checkpoint.run()
-        
-        # 构建并打开文档
-        self.build_and_open_docs(names['site_name'])
-        
+
+        # self.build_and_open_docs(names['site_name'])
+        self.context.build_data_docs()
         return results
+
 
 def validate_file_data(context, data_source_path, asset_type, batch_path, expectations):
     validator = FileValidator(context)
