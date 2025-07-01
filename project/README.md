@@ -86,5 +86,4 @@ gxe.ExpectColumnValuesToBeBetween(column="age", min_value=0, max_value=120)
 ```
 
 可以创建自定义的数据期望来满足特定的验证需求。
-
-**注意**: 本项目基于 Great Expectations 1.x 版本构建，与 0.x 版本的 API 存在差异。请确保使用正确的版本和 API 调用方式。
+S
