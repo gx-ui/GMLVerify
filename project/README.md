@@ -71,13 +71,13 @@ expect_column_values_to_be_between(
     max_value=1000.0
 )
 ```
-缺失值验证：
+Missing value validation:
 ```python
 expect_column_values_to_not_be_null(
     column="passenger_count"
 )
 ```
-长度范围验证：
+Length range validation:
 ```python
 expect_column_values_to_be_between(
     column="name",
@@ -85,7 +85,7 @@ expect_column_values_to_be_between(
     max_value=20
 )
 ```
-空值检查：
+Null value check:
 ```python
 expect_column_values_to_not_be_null(
     column="name"
